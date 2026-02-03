@@ -10,9 +10,13 @@
   display:flex;
   flex-direction:column;
   padding:10px 20px 0 5px;
+  height:100%;
 }
 #mainMenu img {
   height:100px;
+}
+#mainMenu .menuIcon {
+  margin-right:5px;
 }
 #mainMenu a{
   color:white;
@@ -20,16 +24,12 @@
   transition:.5s;
   padding:5px 15px;
   border-radius:10px;
+  font-weight:bold;
 }
 #mainMenu a:hover {
   color:goldenrod;
   background-color: hsl(from goldenrod h s l / .2);
 }
-
-
-
-
-
 
 
 /*
