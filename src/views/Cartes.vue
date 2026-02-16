@@ -1,8 +1,12 @@
 <script setup>
 import axios from 'axios'
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter();
 
 const raretes = ["Common", "Rare", "SuperRare","SecretRare","Special", "Leader"]
+
 
 // Appel API de toutes les cartes d'une extension
 const listeCartes = ref();
@@ -23,6 +27,13 @@ async function extensionListCall() {
         await extensionCall(622302);
   })
 
+const cardClick = (cardID) => {
+router.push({
+    name:"CarteView",
+    params: {cardID},
+})
+}
+
 </script>
 
 <template>
@@ -37,19 +48,19 @@ async function extensionListCall() {
     </div>
     <div id="cartesContainer">
         <div v-for="carte in listeCartes" class="cardComponent">
-            <img class="cardImg" :src="carte.img_full_url" :note="carte.rarity">
+            <a @click="cardClick(carte.id, extensionID)"><img class="card" :src="carte.img_full_url" :note="carte.rarity"></a>
         </div>
     </div>
 </template>
 
-<style>
+<style scoped>
 
 #cartesContainer {
     display:grid;
     grid-template-columns: repeat(7, 1fr);
 }
 
-.cardImg {
+img.card {
   width:200px;
 }
 .cardComponent {
