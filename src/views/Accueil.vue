@@ -2,7 +2,7 @@
 </script>
 
 <template>
-    coucou
+    coucou 🫣
 </template>
 
 <style></style>
